@@ -1,0 +1,78 @@
+html { background: url(../images/bg.png);}
+.container { width: 1420px; margin: 0 auto; }
+.header { position: relative; padding-top: 30px; }
+.header .time { position: absolute; top: 76px; right: 120px;
+  color: #dfe0e4; font-size: 24px; font-weight: 700; }
+.header h1 { width: 100%; height: 105px; margin-bottom: 10px;
+  background: url(../images/title.png) center center no-repeat; }
+.chart { position: relative; }
+.main_group { overflow: hidden; }
+.main_item { float: left; margin-bottom: 10px; padding: 20px; box-sizing: border-box;
+  position: relative; border: 2px solid rgba(12,56,132,.5);  }
+.main_item.mg_right { width: 462px; margin-right: 10px; }
+.main_item h2 { margin-bottom: 24px; color: #fff; font-size: 22px; font-weight: 700; }
+.explain { position: absolute; top: 30px; right: 30px; }
+.jf_explain .explain_item { margin-bottom: 6px; }
+.jf_explain .explain_item i { display: inline-block; width: 16px; height: 16px;
+  margin-right:12px; border-radius: 50%;  }
+.jf_explain .explain_item i.use_quota { background-color: #e42889; }
+.jf_explain .explain_item i.total_quota { background-color: #8db217; }
+.explain .explain_item span { line-height: 16px; vertical-align: top;
+   color: #fff; font-size: 16px; }
+.jf_chart { position: relative; width: 260px; height: 260px;  margin: 0 auto; }
+#pie_credit_money { width: 420px; height: 420px;
+  position: absolute; top: -84px; left: -180px; }
+.jf_data { position: absolute; right: 10px; top: 170px; font-weight: 700;
+   font-size: 38px; color: #e42889; width: 198px; text-align: center;
+   height: 100px; box-sizing: border-box; padding-left: 30px;
+   background: url(../images/jf_data_bg.png) center center no-repeat; }
+#credit_money_data { display: inline-block; }
+#credit_money_data .digit { float: left; display: inline-block; }
+.jf_data .bg { position: absolute; width: 198px; height: 27px;
+  }
+/*二手车  */
+.usedCar_item { float: left; width: 30.33%; margin-right: 40px; padding: 60px 0;
+  box-sizing: border-box; border: 2px solid rgba(12,58,136,.5); text-align: center;}
+.usedCar_item:last-child { margin-right: 0; }
+.usedCar_item h3 { margin-bottom: 40px; line-height: 26px;
+    color: #fff; font-size: 26px; font-weight: 700;  }
+.usedCar_data { font-size: 44px; font-weight: 700; }
+.usedCar_data>div { display: inline-block; }
+#car_num { color: #47e9ef; }
+#deal_car_num { color: #f6d843; }
+#deal_car_money { color: #ee4d5d; }
+.usedCar_data .digit { float: left; display: inline-block; }
+.team_task_item { float: left; width: 33.33%; height: 242px;
+   padding: 0 30px; position: relative; box-sizing: border-box; }
+.team_task_data { position: absolute; top: -18px; left: 200px; right: -100px; }
+.team_task_data .text { font-size: 32px; font-weight: 700; color: green;}
+.team_task_data .bg { position: absolute; width: 35px; height: 25px;
+   left: -45px; bottom: -7px;
+  background: url(../images/team_task_data_bg.png) center center no-repeat; }
+.team_task_data .digit { float: left; display: inline-block; }
+.team_task_item .bd-right { position: absolute; right: 0; top: 70px;
+  width: 3px; height: 120px; background-color: #0a3581; }
+.team_task_chart { position: absolute; left: -50px; top: -85px;
+  width: 220px; height: 220px;  }
+.team_task_item h3 { margin-top: 240px; font-size: 28px;
+   text-align: center; line-height: 22px;  }
+.team_task_item_1 h3 { color: #0bb5ec; }
+.team_task_item_2 h3 { color: #f8bd00; }
+.team_task_item_3 h3 { color: #e42789; }
+/*车友服务*/
+#service_order_num { position: absolute; width: 420px; height: 280px;  }
+.service_explain .explain_item i { display: inline-block; width: 30px; height: 15px;
+  margin-right: 10px; border: 1px solid #0083cf; background-color: rgba(160,36,119,.8); }
+.service_explain .explain_item span {  }
+.highcharts-credits { display: none; }
+/*斜线*/
+/*.slash { position: absolute; width: 50px; height: 50px;
+  background-image: url(../images/bg.png);  }
+.slash_bottom_right { bottom: -27px; right: -27px;
+   transform: rotateZ(45deg); border-left: 2px solid rgba(12,56,132,.5); }
+.slash_top_right { top: -27px; right: -27px;
+  transform: rotateZ(-45deg); border-left: 2px solid rgba(12,56,132,.5); }
+.slash_top_left { bottom: -27px; left: -27px;
+  border-right: 2px solid rgba(12,56,132,.5); transform: rotateZ(-45deg); }
+.slash_bottom_left { top: -27px; left: -27px; transform: rotateZ(45deg);
+  border-right: 2px solid rgba(12,56,132,.5); }*/

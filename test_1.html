@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/highcharts.css">
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/highcharts.js"></script>
+  <title>倍儿牛全国实时数据</title>
+</head>
+<body>
+      <div id="city" style="min-width:400px;height:400px"></div>
+      <script type="text/javascript">
+      var chart = null;
+$(function () {
+$('#city').highcharts(
+  {
+    chart: {
+        plotBackgroundColor: null, // 绘图区背景色
+        plotBorderWidth: null, // 绘图区边框图
+        plotShadow: false, // 绘图区阴影
+        spacing : [100, 0 , 40, 0], // 内边距
+        type: 'pie'
+    },
+    subtitle: {
+      text: "目标",
+      y: 130
+    },
+    colors: ['#000000', '#91e8e1'],
+    title: {
+        floating: true, // 标题浮动
+        text: '1000家',
+        style: { "color": "red" }
+    },
+    tooltip: { // 数据提示框
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>' // 数据点格式化字符串
+    },
+    plotOptions: { // 数据列配置
+        pie: { // 饼图
+            allowPointSelect: true, //是否允许选择点，点击突出
+            cursor: 'pointer', // 鼠标光标形状
+            dataLabels: { // 数据标签
+                enabled: true, // 启用或禁用数据标签
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %', // 数据标签的格式字符串
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'red'
+                }
+            },
+            point: {
+                events: {
+                    mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                        // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+                        chart.setTitle({
+                            text: e.target.name+ '\t'+ e.target.y + ' %'
+                        });
+                    }
+                    //,
+                    // click: function(e) { // 同样的可以在点击事件里处理
+                    //     chart.setTitle({
+                    //         text: e.point.name+ '\t'+ e.point.y + ' %'
+                    //     });
+                    // }
+                 }
+            },
+        }
+    },
+    series: [
+      { // 通用数据列
+        type: 'pie',
+        innerSize: '60%', // 饼图的粗细
+        name: '市场份额', // 鼠标悬停提示名称
+        data: [
+            {name:'Firefox',   y: 45.0, url : 'http://bbs.hcharts.cn'},
+            ['IE', 26.8]
+            // ,
+            // {
+            //     name: 'Chrome',
+            //     y: 12.8,
+            //     sliced: true,
+            //     selected: true,
+            //     url: 'http://www.hcharts.cn'
+            // },
+            // ['Safari', 8.5],
+            // ['Opera', 6.2]
+            // ,
+            // ['其他', 0.7]
+        ]
+    }
+  ]
+}
+, function(c) {
+    // 环形图圆心
+    console.log(c);
+    var centerY = c.series[0].center[1],
+        titleHeight = parseInt(c.title.styles.fontSize);
+    c.setTitle({
+        y:centerY + titleHeight/2
+    });
+    chart = c;
+  }
+);
+});
+
+      </script>
+</body>
+</html>

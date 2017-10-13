@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- <link rel="stylesheet" href="./css/highcharts.css"> -->
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/highcharts.js"></script>
+  <title>倍儿牛全国实时数据</title>
+</head>
+<body>
+      <div id="city" style="min-width:400px;height:400px"></div>
+      <button id="button" class="autocompare">更新数据</button>
+      <script type="text/javascript">
+      var chart = null;
+$(function () {
+  // Highcharts.getOptions().plotOptions.pie.colors = (function () {
+  //   var colors = ['#f00000', 'blue'];
+  //   return colors;
+  // }());
+  $('#city').highcharts({
+      chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          spacing : [100, 0 , 40, 0]
+      },
+      subtitle: {
+        floating: true,
+        text: "目标",
+        style: { 'color': '#000', 'font-size': '16px'},
+        y: 115
+      },
+      title: {
+          floating: true,
+          useHTML: true,
+          style: { 'color': '#f8bd00', 'font-family': '微软雅黑',
+                  'font-weight': 700, 'font-size': '24px' },
+          text: '100家'
+      },
+      tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                  enabled: true,
+                  format: ' {point.percentage:.1f}<b>家</b>',
+                  style: {
+                      color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'green'
+                  }
+              }
+          }
+      },
+      dataLabels: {
+
+      },
+      series: [{
+          type: 'pie',
+          innerSize: '80%',
+          name: '市场份额',
+          data: [
+              {
+                  name: 'Chrome',
+                  color: 'green',
+                  y: 500,
+                  sliced: false,
+                  selected: true
+              },
+              {  name:'',
+                 y: 99500,
+                 color: '#f8bd00'
+               }
+          ]
+      }]
+  }, function(c) {
+      // 环形图圆心
+      console.log(c);
+      var centerY = c.series[0].center[1],
+          titleHeight = parseInt(c.title.styles.fontSize);
+      c.setTitle({
+          y: centerY + titleHeight/2
+      });
+      chart = c;
+      //console.log($('#city .highcharts-point-select.highcharts-color-0'));
+      console.log(chart.series[0].addPoint);
+      console.log(chart.series[0].data);
+  });
+  $('#button').click(function () {
+        chart.series[0].setData([
+            {
+                name: 'Chrome',
+                color: 'green',
+                y: 10000,
+                sliced: false,
+                selected: true
+            },
+            {  name:'',
+               y: 90000,
+               color: '#f8bd00'
+             }
+        ]);
+    });
+});
+
+      </script>
+</body>
+</html>
