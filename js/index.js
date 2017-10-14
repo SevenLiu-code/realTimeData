@@ -1,5 +1,6 @@
 var datas = null; // 实时数据
 var pie_city_num = null, pie_lm_num = null, pie_member_num = null, pie_credit_money = null; // 团队任务
+var service_data = [2, 2.3, 2.6, 3.4, 4.2, 4.1, 3.9, 4.0, 2.9]; // 车友服务模拟数据
 function requestData() {
     $.ajax({
       type: "POST",
@@ -449,7 +450,7 @@ $(function(){
       },
       series: [{
           name: '各月销量',
-          data: [2, 2.3, 2.6, 3.4, 4.2, 4.1, 3.9, 4.0, 1.9]
+          data: service_data
       }]
   });
     requestData()
