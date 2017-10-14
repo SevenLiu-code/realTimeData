@@ -76,11 +76,17 @@ function requestData() {
   }
 function getLangDate(){
   var dateObj = new Date(); //表示当前系统时间的Date对象
+
+  var year = dateObj.getFullYear(); // 当前系统时间年份
+  var month = dateObj.getMonth() + 1; // 当前系统时间的月份
   var date = dateObj.getDate(); //当前系统时间的月份中的日
   var hour = dateObj.getHours(); //当前系统时间的小时值
   var minute = dateObj.getMinutes(); //当前系统时间的分钟值
   var second = dateObj.getSeconds(); //当前系统时间的秒钟值
   //如果月、日、小时、分、秒的值小于10，在前面补0
+  if(month<10){
+    month = "0"+month;
+  }
   if(date<10){
   date = "0"+date;
   }
@@ -93,7 +99,7 @@ function getLangDate(){
   if(second<10){
   second = "0"+second;
   }
-  var newDate = hour+":"+minute+":"+second;
+  var newDate = year+"年"+month+"月"+date+"日"+"<br>"+hour+":"+minute+":"+second;
   document.getElementById("mytime").innerHTML = newDate;
 }
 
