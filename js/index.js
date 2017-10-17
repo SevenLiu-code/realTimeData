@@ -11,7 +11,6 @@ function requestData() {
       cache: false,
       timeout: 8000,
       success: function(data) {
-        console.log(data);
         datas = data;
         $('#car_num').countDown(data['car_num']);
         $('#deal_car_num').countDown(data['deal_car_num']);
