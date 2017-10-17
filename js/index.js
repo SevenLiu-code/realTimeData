@@ -8,8 +8,10 @@ function requestData() {
       jsonp: "callback",
       cache: false,
       url: "http://bns.beierniu.com/monitor",
-      cache: false
+      cache: false,
+      timeout: 8000,
       success: function(data) {
+        console.log(data);
         datas = data;
         $('#car_num').countDown(data['car_num']);
         $('#deal_car_num').countDown(data['deal_car_num']);
@@ -73,13 +75,12 @@ function requestData() {
          setTimeout(requestData, 60000);
        },
       error: function(){
-         alert('网络错误');
+         alert('网络错误，请检查网络连接');
       }
     });
   }
 function getLangDate(){
   var dateObj = new Date(); //表示当前系统时间的Date对象
-
   var year = dateObj.getFullYear(); // 当前系统时间年份
   var month = dateObj.getMonth() + 1; // 当前系统时间的月份
   var date = dateObj.getDate(); //当前系统时间的月份中的日
