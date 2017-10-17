@@ -8,6 +8,7 @@ function requestData() {
       jsonp: "callback",
       cache: false,
       url: "http://bns.beierniu.com/monitor",
+      cache: false
       success: function(data) {
         datas = data;
         $('#car_num').countDown(data['car_num']);
@@ -71,7 +72,9 @@ function requestData() {
         // 一秒后继续调用本函数
          setTimeout(requestData, 60000);
        },
-      cache: false
+      error: function(){
+         alert('网络错误');
+      }
     });
   }
 function getLangDate(){
