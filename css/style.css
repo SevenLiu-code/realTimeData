@@ -60,6 +60,7 @@ html { background: url(../images/bg.png);}
 .team_task_item_2 h3 { color: #f8bd00; }
 .team_task_item_3 h3 { color: #e42789; }
 /*车友服务*/
+.team_task { position: relative; left: -10px; }
 #service_order_num { position: absolute; width: 420px; height: 280px;  }
 .service_explain .explain_item i { display: inline-block; width: 30px; height: 15px;
   margin-right: 10px; border: 1px solid #0083cf; background-color: rgba(160,36,119,.8); }

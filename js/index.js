@@ -1,6 +1,6 @@
 var datas = null; // 实时数据
 var pie_city_num = null, pie_lm_num = null, pie_member_num = null, pie_credit_money = null; // 团队任务
-var service_data = [2, 2.3, 2.6, 3.4, 4.2, 4.1, 3.9, 4.0, 2.9]; // 车友服务模拟数据
+var service_data = [2, 2.3, 2.6, 3.4, 4.2, 4.1, 3.9, 4.0, 4.1]; // 车友服务模拟数据
 function requestData() {
     $.ajax({
       type: "POST",
@@ -12,7 +12,8 @@ function requestData() {
       timeout: 8000,
       success: function(data) {
         datas = data;
-        $('#car_num').countDown(data['car_num']);
+        data.car_num = data.car_num + 10000; // 二手车数据模拟
+        $('#car_num').countDown(data.car_num);
         $('#deal_car_num').countDown(data['deal_car_num']);
         $('#deal_car_money').countDown(data['deal_car_money']);
         // 已开运营商数据更新
@@ -42,6 +43,7 @@ function requestData() {
           ]);
           $("#lm_num_data").countDown(data.lm_num);
         // 已注册人数数据更新
+        data.member_num = data.member_num + 10000; // 注册人数模拟
          pie_member_num.series[0].setData([
             {
                 name: '已在注册人数',
